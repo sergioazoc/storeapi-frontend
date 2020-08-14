@@ -39,7 +39,7 @@ export default {
     products: state => state.products,
 
     filterProducts (state) {
-      return state.products.filter(product => product.name.toLowerCase().includes(this.q))
+      return state.products.filter(product => product.name.toLowerCase().includes(this.q.toLowerCase()))
     }
   }),
   components: {
