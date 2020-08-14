@@ -1,5 +1,7 @@
 # storeapi-frontend
 
+## Live in [Netlify](https://frontend-storeapi.netlify.app/)
+
 ## Project setup
 ```
 npm install
