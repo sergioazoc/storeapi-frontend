@@ -7,10 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: null,
+    error: false
   },
   mutations: {
     getProducts(state, data) {
-      state.products = data;
+      if (data[0] === "error") {
+        state.error = true;
+      } else {
+        state.products = data;
+      } 
     }
   },
   actions: {

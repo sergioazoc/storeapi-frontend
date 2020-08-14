@@ -1,12 +1,12 @@
 <template>
   <div class="container">
+
     <div class="finder">
       <h1 class="lobster text-primary">Storeapi</h1>
       <input v-model="q" class="finder__input" type="search" placeholder="Buscar...">
       <img class="finder__img" src="../assets/img/cart.svg" alt="carro de compras">
     </div>
 
-    
     <div v-if="products" class="products">
       <Product 
         :product="product"  
@@ -15,12 +15,18 @@
       />
     </div>
 
+    <Loader v-else />
+
+    <div v-if="error">
+      <p>No se pudo conectar con la base de datos.</p>
+    </div>
     
   </div>
 </template>
 
 <script>
 import Product from "./Product";
+import Loader from "./Loader";
 import { mapActions, mapState } from "vuex";
 
 export default {
@@ -38,13 +44,15 @@ export default {
   },
   computed: mapState({
     products: state => state.products,
+    error: state => state.error,
 
     filterProducts (state) {
       return state.products.filter(product => product.name.toLowerCase().includes(this.q.toLowerCase()))
     }
   }),
   components: {
-    Product
+    Product,
+    Loader
   }
 }
 </script>
@@ -56,7 +64,7 @@ export default {
 }
 
 .finder{
-  margin: 20px 0;
+  margin: 20px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
