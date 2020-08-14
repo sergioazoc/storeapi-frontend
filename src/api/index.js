@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://storeapi-bsale.herokuapp.com/";
+const BASE_URL = "https://backend-storeapi.herokuapp.com/";
 
   const getProducts = async () => {
     try {

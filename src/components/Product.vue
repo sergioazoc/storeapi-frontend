@@ -23,6 +23,7 @@ export default {
 <style lang="scss" scoped>
 .product{
   width: 250px;
+  background-color: #ffffff;
   box-shadow: 1px 1px 5px #e2e8f0;
 }
 
